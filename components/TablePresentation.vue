@@ -1,8 +1,12 @@
 <template>
-  <div>
-    {{ title }}
-    <v-data-table :headers="headers" :items="items" />
-  </div>
+  <v-card>
+    <v-card-title>
+      {{ title }}
+    </v-card-title>
+    <v-card-text>
+      <v-data-table :headers="headers" :items="items" />
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
