@@ -21,7 +21,7 @@ afterEach(() => {
   wrapper.destroy();
 });
 
-describe('UsersPage (index)', () => {
+describe('CategoriesPage (index)', () => {
   it('Contains a TablePresentation component.', () => {
     const { TablePresentation } = build();
 
