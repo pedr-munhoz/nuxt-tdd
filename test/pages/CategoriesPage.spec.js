@@ -4,6 +4,8 @@ import TablePresentation from '@/components/TablePresentation';
 
 let wrapper = null;
 
+const title = 'Categories';
+
 const build = () => {
   const wrapper = shallowMount(CategoriesPage);
 
@@ -31,6 +33,6 @@ describe('CategoriesPage (index)', () => {
   it('Set the appropriate title to the table component.', () => {
     const { TablePresentation } = build();
 
-    expect(TablePresentation().vm.title).toEqual('Categories');
+    expect(TablePresentation().vm.title).toEqual(title);
   });
 });
