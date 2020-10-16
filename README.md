@@ -1,5 +1,7 @@
 # nuxt-tdd
 
+A experimental repository used to aply TDD principles to develop a nuxt application.
+
 ## Build Setup
 
 ```bash
