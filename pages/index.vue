@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table-presentation :title="title" />
+    <table-presentation :title="title" :headers="[]" :items="[]" />
   </div>
 </template>
 
