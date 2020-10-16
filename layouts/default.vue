@@ -6,6 +6,7 @@
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"
+          class="navigationListItem"
           router
           exact
         >
@@ -42,8 +43,18 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'Users',
           to: '/',
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'Categories',
+          to: '/categories',
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'Products',
+          to: '/products',
         },
       ],
       title: 'Nuxt - TDD',
