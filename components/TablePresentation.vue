@@ -2,6 +2,7 @@
   <v-card>
     <v-card-title>
       {{ title }}
+      <v-btn id="modalButton" @click="actviateModal"></v-btn>
     </v-card-title>
     <v-card-text>
       <v-data-table :headers="headers" :items="items" />
@@ -28,6 +29,12 @@ export default {
       type: Array,
       required: true,
       default: () => [],
+    },
+  },
+
+  methods: {
+    actviateModal() {
+      this.$emit('activateModal');
     },
   },
 };

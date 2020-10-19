@@ -18,17 +18,19 @@ const items = [
   { id: '9', name: 'John', status: false },
   { id: '14', name: 'Liz', status: true },
 ];
+const modal = 'UserModal';
 
 const build = () => {
   const wrapper = mount(TablePresentation, {
     localVue,
     vuetify,
-    propsData: { title, headers, items },
+    propsData: { title, headers, items, modal },
   });
 
   return {
     wrapper,
     dataTable: () => wrapper.find('.v-data-table'),
+    modalButton: () => wrapper.find('#modalButton'),
   };
 };
 
@@ -62,5 +64,13 @@ describe('TablePresentation component', () => {
     const { dataTable } = build();
 
     expect(dataTable().vm.items).toEqual(items);
+  });
+
+  it('Has a activating button to call the creation modal', () => {
+    const { wrapper, modalButton } = build();
+
+    modalButton().trigger('click');
+
+    expect(wrapper.emitted().activateModal).toBeTruthy();
   });
 });
