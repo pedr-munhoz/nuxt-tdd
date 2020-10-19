@@ -1,4 +1,6 @@
-export class Product {
+import { BaseModel } from '@/models/baseModel';
+
+export class Product extends BaseModel {
   id: number = 0;
   name: string = '';
   description: string = '';

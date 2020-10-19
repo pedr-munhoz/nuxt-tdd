@@ -1,10 +1,7 @@
 import { Gender } from '@/models/enums/gender';
+import { BaseModel } from '@/models/baseModel';
 
-export class User {
-  id: number = 0;
-  name: string = '';
-  description: string = '';
-  status: boolean = false;
+export class User extends BaseModel {
   email: string = '';
   gender: Gender = Gender.Female;
 }
