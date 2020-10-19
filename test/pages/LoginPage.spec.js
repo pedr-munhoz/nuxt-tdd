@@ -12,6 +12,7 @@ const build = () => {
     wrapper,
     emailField: () => wrapper.find('#emailInput'),
     passwordField: () => wrapper.find('#passwordInput'),
+    loginButton: () => wrapper.find('#loginButton'),
   };
 };
 
@@ -38,5 +39,11 @@ describe('LoginPage', () => {
     const { passwordField } = build();
 
     expect(passwordField().exists()).toBe(true);
+  });
+
+  it('Contains a login button', () => {
+    const { loginButton } = build();
+
+    expect(loginButton().exists()).toBe(true);
   });
 });
