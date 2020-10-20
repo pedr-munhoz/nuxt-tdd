@@ -69,13 +69,13 @@ describe('UserModal component', () => {
     expect(wrapper.emitted().confirm).toBeTruthy();
   });
 
-  it('The event returns a user object', async () => {
+  it('The event returns object containing the expected input', async () => {
     await nameField().setValue(user.name);
     await emailField().setValue(user.email);
     await genderField().setValue(user.gender);
 
     confirmButton().trigger('click');
 
-    expect(wrapper.emitted().confirm[0][0]).toEqual(user);
+    expect(wrapper.emitted().confirm[0]).toContainEqual(user);
   });
 });

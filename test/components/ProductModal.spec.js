@@ -1,5 +1,5 @@
 import { createLocalVue, mount } from '@vue/test-utils';
-import CategoryModal from '@/components/CategoryModal';
+import ProductModal from '@/components/ProductModal';
 import Vuetify from 'vuetify';
 
 const localVue = createLocalVue();
@@ -8,16 +8,20 @@ let vuetify;
 let wrapper = null;
 let nameField = null;
 let descriptionField = null;
+let priceField = null;
+let imageField = null;
 let confirmButton = null;
 
-const title = 'Category';
-const category = {
-  name: 'Games',
-  description: 'Eletronic games and acessories',
+const title = 'Product';
+const product = {
+  name: 'TV',
+  description: 'A television',
+  price: '1500',
+  image: 'link',
 };
 
 const build = () => {
-  const wrapper = mount(CategoryModal, {
+  const wrapper = mount(ProductModal, {
     localVue,
     vuetify,
   });
@@ -26,20 +30,29 @@ const build = () => {
     wrapper,
     nameField: () => wrapper.find('#nameInput'),
     descriptionField: () => wrapper.find('#descriptionInput'),
+    priceField: () => wrapper.find('#priceInput'),
+    imageField: () => wrapper.find('#imageInput'),
     confirmButton: () => wrapper.find('#confirmButton'),
   };
 };
 
 beforeEach(() => {
   vuetify = new Vuetify();
-  ({ wrapper, nameField, descriptionField, confirmButton } = build());
+  ({
+    wrapper,
+    nameField,
+    descriptionField,
+    priceField,
+    imageField,
+    confirmButton,
+  } = build());
 });
 
 afterEach(() => {
   wrapper.destroy();
 });
 
-describe('CategoryModal component', () => {
+describe('ProductModal component', () => {
   it('Has a title', () => {
     expect(wrapper.text()).toContain(title);
   });
@@ -50,6 +63,14 @@ describe('CategoryModal component', () => {
 
   it('Contains a description field', () => {
     expect(descriptionField().exists()).toBe(true);
+  });
+
+  it('Contains a price field', () => {
+    expect(priceField().exists()).toBe(true);
+  });
+
+  it('Contains a image field', () => {
+    expect(imageField().exists()).toBe(true);
   });
 
   it('Contains a confirm button', () => {
@@ -63,11 +84,13 @@ describe('CategoryModal component', () => {
   });
 
   it('The event returns object containing the expected input', async () => {
-    await nameField().setValue(category.name);
-    await descriptionField().setValue(category.description);
+    await nameField().setValue(product.name);
+    await descriptionField().setValue(product.description);
+    await priceField().setValue(product.price);
+    await imageField().setValue(product.image);
 
     confirmButton().trigger('click');
 
-    expect(wrapper.emitted().confirm[0]).toContainEqual(category);
+    expect(wrapper.emitted().confirm[0]).toContainEqual(product);
   });
 });
