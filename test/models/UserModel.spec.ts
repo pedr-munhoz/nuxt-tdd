@@ -13,10 +13,6 @@ describe('UserModel', () => {
     expect(typeof user.name).toBe('string');
   });
 
-  it('Must contain a description: string', () => {
-    expect(typeof user.description).toBe('string');
-  });
-
   it('Must contain a status: boolean', () => {
     expect(typeof user.status).toBe('boolean');
   });
