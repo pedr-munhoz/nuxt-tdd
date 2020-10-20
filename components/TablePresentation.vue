@@ -3,7 +3,7 @@
     <v-card-title>
       {{ title }}
       <v-spacer />
-      <v-btn id="modalButton" rounded outlined @click="actviateModal">
+      <v-btn id="modalButton" rounded outlined @click="actviateModal()">
         <v-icon>mdi-plus</v-icon>
       </v-btn>
     </v-card-title>
